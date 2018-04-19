@@ -13,11 +13,15 @@ app.use(express.static(path.join(__dirname, '/')));
 
 //服务器中间件
 app.use(webpackDevMiddleware(compiler,{
-    publicPath:'/',
     noInfo: true,
     stats: {
         colors: true,
-    }
+    },
+    publicPath: webpackConfig.output.publicPath,
+    watchOptions: {
+        aggregateTimeout: 300,
+        poll: true
+    },
 }));
 
 //热更新
