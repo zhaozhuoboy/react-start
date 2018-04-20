@@ -5,6 +5,7 @@
 */
 
 import React from 'react';
+import Home from 'page/Home';
 
 
 export default class App extends React.Component {
@@ -18,7 +19,9 @@ export default class App extends React.Component {
     }
     render() {
         return (
-          <div>Hello React1</div>
+            <div>
+                <Home />
+            </div>
         );
     }
 }
