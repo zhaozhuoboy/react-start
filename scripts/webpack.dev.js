@@ -8,7 +8,7 @@ const webpackBaseConfig = require('./webpack.base');
 require("babel-polyfill");//兼容ie9,10配置
 
 module.exports = webpackMerge(webpackBaseConfig,{
-    // mode:'development',
+    mode:'development',
     devtool: 'cheap-source-map',
     entry: {
         app: ["babel-polyfill", 'webpack-hot-middleware/client?reload=true?http://localhost:' + config.dev.port, path.resolve(__dirname, '../src/index.js')]

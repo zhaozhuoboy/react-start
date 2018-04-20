@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, '/')));
 
 //服务器中间件
 app.use(webpackDevMiddleware(compiler,{
-    noInfo: true,
+    noInfo: false,
     stats: {
         colors: true,
     },
