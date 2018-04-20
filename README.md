@@ -31,6 +31,15 @@ new HtmlWebpackPlugin({
 在模板html中的title使用`HtmlWebpackPlugin`配置项中的title，在html中这样用 `<%= htmlWebpackPlugin.options.title %>`
 
 
+5、最开始用webpack4的时候遇到第一个问题，就把webpack降级到3.8.1版本了，然后就会报下面的错误。
+![tim 20180420103018](https://user-images.githubusercontent.com/15223986/39027738-de813250-4485-11e8-9e1b-9b7234de30b4.jpg)
+
+查了官方的issue [#295](https://github.com/webpack/webpack-dev-middleware/issues/295)，最新的`webpack-dev-middleware`插件是要搭配webpack4.x使用的。然后降级`webpack-dev-middleware`问题解决。
+
+![image](https://user-images.githubusercontent.com/15223986/39027802-2d92c976-4486-11e8-9559-b539e6e40187.png)
+
+
+
 #### 懒加载 
 
 [参考](https://reacttraining.com/react-router/web/guides/code-splitting)
