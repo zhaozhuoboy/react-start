@@ -1,4 +1,6 @@
 let path = require('path');
+let config = require('./config/config.js');
+let chalk = require('chalk');
 let express = require('express');
 let webpack = require('webpack');
 let webpackConfig = require('./scripts/webpack.dev');
@@ -21,17 +23,17 @@ app.use(webpackDevMiddleware(compiler,{
     watchOptions: {
         aggregateTimeout: 300,
         poll: true
-    },
+    }
 }));
 
 //热更新
 app.use(webpackHotMiddleware(compiler));
 
-app.set('port', parseInt(process.env.PORT));
+app.set('port', parseInt(config.dev.port));
 
 app.listen(app.get('port'),function(err){
     if (err) {
-        console.log(err);
+        console.log(chalk.red(err));
     }
-    console.log('Port is ' + app.get('port') + ', please wait to build ...');
+    console.log(chalk.green('App is running at http://localhost: ' + app.get('port') + ', please wait to build >>>'));
 })

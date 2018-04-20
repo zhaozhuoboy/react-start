@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const config = require('../config/config');
 
 
 module.exports = {
@@ -9,7 +10,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, '../dist'),
         filename: '[name].js',
-        publicPath:'/'
+        publicPath: process.env.NODE_ENV === 'production'? config.dev.publicPath:config.build.publicPath
     },
     resolve: {
         extensions: ['.js','.jsx','.json'],
