@@ -51,7 +51,7 @@ module.exports = webpackMerge(webpackBaseConfig, {
         }),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
-                warnings: true,
+                warnings: false,
                 drop_console: true,//是否删除日志
             }
         }),

@@ -46,6 +46,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
+    "echarts": "^4.0.4",
     "es6-promise": "^4.2.4",
     "raf": "^3.4.0",
     "react": "^16.3.2",

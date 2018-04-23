@@ -15,7 +15,7 @@ export default class About extends React.Component {
         }
     }
     componentDidMount() {
-
+        console.log(echarts)
     }
     fetch = async () => {
         const res = await axios.get('https://api.github.com/users/zhaozhuoboy');

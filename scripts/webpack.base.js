@@ -19,6 +19,9 @@ module.exports = {
             'page': path.resolve(__dirname, '../src/page')
         }
     },
+    externals: {
+        echarts: 'Echarts'//第三方插件库使用外部扩展引入，在html文件中引入cdn地址，在这里注册
+    },
     module: {
         rules: [
             {
