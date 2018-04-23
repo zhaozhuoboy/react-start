@@ -13,9 +13,6 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 
 module.exports = webpackMerge(webpackBaseConfig, {
     devtool: false,
-    performance: {
-        hints: "error"//性能，防止过大的文件打入到bundle 
-    },
     entry: {
         app: [
             'babel-polyfill',

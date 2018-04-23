@@ -5,7 +5,7 @@
 */
 
 import React from 'react';
-import Test from 'components/Test';
+import Counter from 'components/counter/Counter';
 
 
 export default class Home extends React.Component {
@@ -18,7 +18,7 @@ export default class Home extends React.Component {
     render() {
         return (
             <div className="home">
-                <Test />
+                <Counter />
             </div>
         );
     }

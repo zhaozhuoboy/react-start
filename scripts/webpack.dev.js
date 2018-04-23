@@ -10,9 +10,6 @@ require('babel-polyfill');
 module.exports = webpackMerge(webpackBaseConfig,{
     // mode:'development',
     devtool: 'cheap-source-map',
-    performance: {
-        hints: "warning"
-    },
     entry: {
         app: [
             'babel-polyfill',
