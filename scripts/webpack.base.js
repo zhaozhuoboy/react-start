@@ -4,6 +4,7 @@ const config = require('../config/config');
 
 module.exports = {
     entry: {
+        vendor: ["echarts"],
         app: '../src/index.js'
     },
     output: {
@@ -19,9 +20,9 @@ module.exports = {
             'page': path.resolve(__dirname, '../src/page')
         }
     },
-    externals: {
-        echarts: 'Echarts'//第三方插件库使用外部扩展引入，在html文件中引入cdn地址，在这里注册
-    },
+    // externals: {
+    //     echarts: 'Echarts'//第三方插件库使用外部扩展引入，在html文件中引入cdn地址，在这里注册
+    // },
     module: {
         rules: [
             {
@@ -42,5 +43,14 @@ module.exports = {
                 }]
             }
         ]
-    }
+    },
+    plugins: [
+        new webpack.ProvidePlugin({
+            React: 'react',//自动加载模块，而不必到处 import 
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: "vendor",//把第三方库抽出打包成vendor.js
+            minChunks: Infinity,
+        })
+    ]
 }

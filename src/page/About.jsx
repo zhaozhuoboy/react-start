@@ -4,9 +4,9 @@
 *
 */
 
-import React from 'react';
+// import React from 'react';
 import axios from 'axios';
-
+import echarts from 'echarts';
 export default class About extends React.Component {
     constructor(props) {
         super(props);
