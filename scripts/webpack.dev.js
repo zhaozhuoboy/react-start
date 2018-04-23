@@ -5,12 +5,17 @@ const webpackMerge = require('webpack-merge');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpackBaseConfig = require('./webpack.base');
-require("babel-polyfill");
+require('babel-polyfill');
+
 module.exports = webpackMerge(webpackBaseConfig,{
     // mode:'development',
     devtool: 'cheap-source-map',
     entry: {
-        app: ['babel-polyfill','webpack-hot-middleware/client?reload=true?http://localhost:' + config.dev.port, path.resolve(__dirname, '../src/index.js')]
+        app: [
+            'babel-polyfill',
+            'webpack-hot-middleware/client?reload=true?http://localhost:' + config.dev.port, 
+            path.resolve(__dirname, '../src/index.js')
+        ]
     },
     output: {
         path: path.resolve(__dirname, '../dist'),

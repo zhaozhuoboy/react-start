@@ -5,14 +5,21 @@ import {
 } from 'react-router-dom'
 import App from './App';
 import './style/base';
-// import promis from 'es6-promise';
-// promis.polyfill();
-if (module.hot) {
-    module.hot.accept()
-}
+
+/**
+ * 兼容IE 9+
+ */
+import promis from 'es6-promise';
+promis.polyfill();
+import 'core-js';
+import 'raf/polyfill';
 
 ReactDOM.render(
     <Router>
         <App/>
     </Router>,
 document.getElementById('app'));
+
+if (module.hot) {
+    module.hot.accept()
+}

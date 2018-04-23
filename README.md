@@ -4,6 +4,10 @@
 
  [ ]2、 项目跑起来后控制台还有一个报错 `only one instance of babel-polyfill is allowed`
 
+ 这个问题困扰了我很久，在入口文件中明明只require了一次 babel-polyfill 但是却总是报警告。在[stackoverflow](https://stackoverflow.com/questions/43902416/only-one-instance-of-babel-polyfill-is-allowed-error)上看到一个回复说可能是 `HtmlWebpackPlugin`这个插件的问题。`HtmlWebpackPlugin`会生成制定的html模板，然后将内存中的js动态插入到模板文件中， 突然想起来模板里我手动加了这么一句`<script src="/app.js"></script>`,赶紧查看一下源码，果然里边加载了两次 `app.js`
+
+ ![image](https://user-images.githubusercontent.com/15223986/39112399-fa50a68c-470a-11e8-9170-02b2b2962672.png)
+
  [x]3、 热更新会刷新浏览器没有真正热模块更新 [参考](http://www.css88.com/doc/webpack/api/hot-module-replacement/)
 
 >如果已经通过 HotModuleReplacementPlugin 启用了模块热替换(Hot Module Replacement)，则它的接口将被暴露在 module.hot 属性下面。
@@ -38,7 +42,15 @@ new HtmlWebpackPlugin({
 
 ![image](https://user-images.githubusercontent.com/15223986/39027802-2d92c976-4486-11e8-9559-b539e6e40187.png)
 
+ 6、IE9中的问题
 
+ ```js
+ Warning: React depends on requestAnimationFrame. Make sure that you load a polyfill in older browsers. https://fb.me/react-polyfills
+ ```
+
+ 看官网的介绍需要引入 `import 'raf/polyfill';` [emmmmm,还是有警告]
+
+ ![20180423151755](https://user-images.githubusercontent.com/15223986/39111968-9a9a88bc-4709-11e8-85e5-4d12fefa46ad.jpg)
 
 #### 懒加载 
 

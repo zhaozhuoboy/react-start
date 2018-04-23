@@ -35,5 +35,5 @@ app.listen(app.get('port'),function(err){
     if (err) {
         console.log(chalk.red(err));
     }
-    console.log(chalk.green('App is running at http://localhost: ' + app.get('port') + ', please wait to build >>>'));
+    console.log(chalk.green('App is running at http://localhost:' + app.get('port') + ', please wait to build >>>'));
 })

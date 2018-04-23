@@ -2,10 +2,9 @@ const path = require('path');
 const webpack = require('webpack');
 const config = require('../config/config');
 
-
 module.exports = {
     entry: {
-        app:'../src/index.js'
+        app: '../src/index.js'
     },
     output: {
         path: path.resolve(__dirname, '../dist'),
@@ -25,6 +24,7 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 loader: 'babel-loader',
+                exclude: /node_modules/,
                 include: [path.resolve(__dirname,'../src')]
             },
             {
