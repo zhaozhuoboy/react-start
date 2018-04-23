@@ -10,6 +10,9 @@ require('babel-polyfill');
 module.exports = webpackMerge(webpackBaseConfig,{
     // mode:'development',
     devtool: 'cheap-source-map',
+    performance: {
+        hints: "warning"
+    },
     entry: {
         app: [
             'babel-polyfill',
@@ -27,10 +30,7 @@ module.exports = webpackMerge(webpackBaseConfig,{
         new HtmlWebpackPlugin({
             title: 'React-Starter',
             template: path.resolve(__dirname, '../src/index.html'),
-            favicon: path.resolve(__dirname,'../src/favicon.ico'),
-            minify: {
-                removeAttributeQuotes: true // 移除属性的引号
-            }
+            favicon: path.resolve(__dirname,'../src/favicon.ico')
         }),
         //配置全局变量
         new webpack.DefinePlugin({
