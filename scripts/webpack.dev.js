@@ -19,7 +19,7 @@ module.exports = webpackMerge(webpackBaseConfig,{
     },
     output: {
         path: path.resolve(__dirname, '../dist'),
-        filename: 'app.js',
+        filename: '[name].js',
         publicPath: config.dev.publicPath,
     },
     plugins: [

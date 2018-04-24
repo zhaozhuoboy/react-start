@@ -9,9 +9,7 @@ import './style/base';
 /**
  * 兼容IE 9+
  */
-import promis from 'es6-promise';
-promis.polyfill();
-import 'core-js';
+
 import 'raf/polyfill';
 
 ReactDOM.render(
