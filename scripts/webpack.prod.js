@@ -43,15 +43,15 @@ module.exports = webpackMerge(webpackBaseConfig, {
         ]
     },
     plugins: [
-        // new CopyWebpackPlugin([
-        //     {
-        //         from: path.resolve(__dirname, "../dll"),
-        //         to: path.resolve(__dirname, '../dist/dll')
-        //     }
-        // ]),
+        new CopyWebpackPlugin([
+            {
+                from: path.resolve(__dirname, "../dll"),
+                to: path.resolve(__dirname, '../dist/dll')
+            }
+        ]),
         new HtmlWebpackPlugin({
             title: '生产配置',
-            template: path.resolve(__dirname, '../src/index.html'),
+            template: path.resolve(__dirname, '../template/index.html'),
             favicon: path.resolve(__dirname, '../src/favicon.ico'),
             minify: {
                 removeAttributeQuotes: true // 移除属性的引号

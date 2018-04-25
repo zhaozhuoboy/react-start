@@ -17,6 +17,8 @@ npm run build
 
 ```
 
+> 执行build的时候 如果根目录没有dll文件夹要先执行 `npm run dll` 
+
 
 ### 记录一下搭建中遇到的问题
 

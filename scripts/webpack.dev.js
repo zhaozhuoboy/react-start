@@ -6,7 +6,6 @@ const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpackBaseConfig = require('./webpack.base');
 require('babel-polyfill');
-
 module.exports = webpackMerge(webpackBaseConfig,{
     // mode:'development',
     devtool: 'cheap-source-map',
@@ -27,11 +26,7 @@ module.exports = webpackMerge(webpackBaseConfig,{
         new HtmlWebpackPlugin({
             title: 'React-Starter',
             template: path.resolve(__dirname, '../src/index.html'),
-            favicon: path.resolve(__dirname,'../src/favicon.ico')
-        }),
-        new webpack.DllReferencePlugin({
-            context: __dirname,
-            manifest: require('../dll/manifest.json')
+            favicon: path.resolve(__dirname,'../src/favicon.ico'),
         }),
         //配置全局变量
         new webpack.DefinePlugin({
