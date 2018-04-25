@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const webpackBaseConfig = require('./webpack.base');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 //抽取css
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 //打包时先清除dist文件夹里的内容
@@ -42,6 +43,12 @@ module.exports = webpackMerge(webpackBaseConfig, {
         ]
     },
     plugins: [
+        // new CopyWebpackPlugin([
+        //     {
+        //         from: path.resolve(__dirname, "../dll"),
+        //         to: path.resolve(__dirname, '../dist/dll')
+        //     }
+        // ]),
         new HtmlWebpackPlugin({
             title: '生产配置',
             template: path.resolve(__dirname, '../src/index.html'),
@@ -65,6 +72,7 @@ module.exports = webpackMerge(webpackBaseConfig, {
             'process.env.NODE_ENV': JSON.stringify('production')
         }),
         new CleanWebpackPlugin(),
-        new BundleAnalyzerPlugin()
+        new BundleAnalyzerPlugin(),
+        
     ]
 })

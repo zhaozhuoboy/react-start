@@ -29,6 +29,10 @@ module.exports = webpackMerge(webpackBaseConfig,{
             template: path.resolve(__dirname, '../src/index.html'),
             favicon: path.resolve(__dirname,'../src/favicon.ico')
         }),
+        new webpack.DllReferencePlugin({
+            context: __dirname,
+            manifest: require('../dll/manifest.json')
+        }),
         //配置全局变量
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('dev')
