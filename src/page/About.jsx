@@ -17,7 +17,7 @@ export default class About extends React.Component {
     componentDidMount() {
         console.log(echarts)
     }
-    fetch = async () => {
+    async fetch  () {
         const res = await axios.get('https://api.github.com/users/zhaozhuoboy');
         console.log(res)
         this.setState({
@@ -29,7 +29,7 @@ export default class About extends React.Component {
         return (
             <div className="about">
                 <h2 style={{textAlign:'center'}}>About page</h2>
-                <button style={{ textAlign: 'center' }} onClick={this.fetch}>Fetch info</button>
+                <button style={{ textAlign: 'center' }} onClick={()=>this.fetch()}>Fetch info</button>
                 <h3 style={{color:"green"}}>{this.state.username}</h3>
             </div>
         );
