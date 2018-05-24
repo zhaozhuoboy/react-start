@@ -6,7 +6,7 @@ import Loadable from 'react-loadable';
  * loading方法可以返回DOM节点，比如：Loading组件
  */
 export const About = Loadable({
-    loader: () => import('page/About'),
+    loader: () => import(/*webpackChunkName:"about"*/'page/About'),
     loading() {
         return ''
     },

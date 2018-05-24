@@ -4,7 +4,6 @@ const config = require('../config/config');
 
 module.exports = {
     entry: {
-        vendor: ["echarts"],
         app: '../src/index.js'
     },
     output: {

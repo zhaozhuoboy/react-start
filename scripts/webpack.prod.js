@@ -43,10 +43,10 @@ module.exports = webpackMerge(webpackBaseConfig, {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin(['dist/*'], {
+        new CleanWebpackPlugin(['dist/*.*'], {
             root: __dirname,       　　　　　　　　　　//根目录
             verbose: true,        　　　　　　　　　　//开启在控制台输出信息
-            dry: false        　　　　　　　　　　//启用删除文件
+            dry: true        　　　　　　　　　　//启用删除文件
         }),
         new CopyWebpackPlugin([
             {
