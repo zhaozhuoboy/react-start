@@ -7,6 +7,8 @@
 import React from 'react';
 import { Route,Link} from 'react-router-dom';
 import routes from './router/index';
+import { Provider } from 'react-redux';
+import store from './store/index';
 
 export default class App extends React.Component {
 
@@ -19,15 +21,17 @@ export default class App extends React.Component {
     }
     render() {
         return (
-            <div>
-                <ul>
-                    <li><Link to="home">home</Link></li>
-                    <li><Link to="about">about</Link></li>
-                </ul>
-                {
-                    routes()
-                }
-            </div>
+            <Provider store={store}>
+                <div className="app-root">
+                    <ul>
+                        <li><Link to="home">home</Link></li>
+                        <li><Link to="about">about</Link></li>
+                    </ul>
+                    {
+                        routes()
+                    }
+                </div>
+            </Provider>
         );
     }
 }
