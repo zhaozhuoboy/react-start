@@ -27,7 +27,8 @@ class About extends React.Component {
     //     })
     // }
     onFetch =() =>{
-        this.props.getInfo()
+        // this.props.getInfo()
+        this.props.dispatch(getInfo())
     }
     render() {
         console.log(this.props)
@@ -48,6 +49,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps,{
-    getInfo
-})(About)
+export default connect(mapStateToProps)(About)
