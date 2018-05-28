@@ -11,9 +11,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 //开启分析
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-
 module.exports = webpackMerge(webpackBaseConfig, {
-    devtool: false,
     entry: {
         app: [
             'babel-polyfill',
@@ -43,17 +41,17 @@ module.exports = webpackMerge(webpackBaseConfig, {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin(['dist/*.*'], {
-            root: __dirname,       　　　　　　　　　　//根目录
-            verbose: true,        　　　　　　　　　　//开启在控制台输出信息
-            dry: true        　　　　　　　　　　//启用删除文件
+        new CleanWebpackPlugin(['dist'],{
+            root: path.resolve(__dirname, '../'),
+            verbose: true,
+            dry: false
         }),
-        new CopyWebpackPlugin([
-            {
-                from: path.resolve(__dirname, "../dll"),
-                to: path.resolve(__dirname, '../dist/dll')
-            }
-        ]),
+        // new CopyWebpackPlugin([
+        //     {
+        //         from: path.resolve(__dirname, "../dll"),
+        //         to: path.resolve(__dirname, '../dist/dll')
+        //     }
+        // ]),
         new HtmlWebpackPlugin({
             title: '生产配置',
             template: path.resolve(__dirname, '../template/index.html'),

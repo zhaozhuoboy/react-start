@@ -48,10 +48,6 @@ module.exports = {
         new webpack.ProvidePlugin({
             React: 'react',//自动加载模块，而不必到处 import 
         }),
-        new webpack.DllReferencePlugin({
-            context: __dirname,
-            manifest: require('../dll/app-manifest.json')
-        }),
         // new webpack.optimize.CommonsChunkPlugin({
         //     name: "vendor",//把第三方库抽出打包成vendor.js
         //     minChunks: Infinity,
