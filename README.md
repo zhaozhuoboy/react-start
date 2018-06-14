@@ -24,7 +24,7 @@ npm run build
 
  [ ]1、 webpack 4.X 好像还是有点问题的，百度了一下貌似webpack-dev-middleware 版本还没有兼容 命令行里会有 ` Tapable.plugin is deprecated. Use new API on `.hooks` instead` 提示，先记录一下，以后再整。先换成webpack3.X
 
- [ ]2、 项目跑起来后控制台还有一个报错 `only one instance of babel-polyfill is allowed`
+ [X]2、 项目跑起来后控制台还有一个报错 `only one instance of babel-polyfill is allowed`
 
  这个问题困扰了我很久，在入口文件中明明只require了一次 babel-polyfill 但是却总是报警告。在[stackoverflow](https://stackoverflow.com/questions/43902416/only-one-instance-of-babel-polyfill-is-allowed-error)上看到一个回复说可能是 `HtmlWebpackPlugin`这个插件的问题。`HtmlWebpackPlugin`会生成制定的html模板，然后将内存中的js动态插入到模板文件中， 突然想起来模板里我手动加了这么一句`<script src="/app.js"></script>`,赶紧查看一下源码，果然里边加载了两次 `app.js`
 
